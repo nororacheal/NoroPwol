@@ -283,6 +283,7 @@
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
         gap: 0.9rem;
+        align-items: stretch;
       }
 
       .look-card {
@@ -336,11 +337,58 @@
       }
 
       .wide {
-        grid-column: span 6;
+        grid-column: span 4;
       }
 
       .tall {
         min-height: 300px;
+      }
+
+      .packages-block {
+        margin-top: 1.15rem;
+      }
+
+      .packages-block h3 {
+        margin: 0 0 0.72rem;
+        font-family: "Syne", sans-serif;
+        font-size: 1.25rem;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .package-card {
+        padding: 0.9rem 0.86rem;
+        border-radius: 16px;
+        border: 1px solid rgba(177, 137, 153, 0.25);
+        background: linear-gradient(150deg, rgba(255, 253, 250, 0.95), rgba(255, 240, 247, 0.92));
+        box-shadow: 0 14px 26px rgba(117, 73, 94, 0.1);
+      }
+
+      .package-card span {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: #8a5f71;
+        text-transform: uppercase;
+      }
+
+      .package-card strong {
+        display: block;
+        margin-top: 0.22rem;
+        font-family: "Syne", sans-serif;
+        font-size: 1.08rem;
+      }
+
+      .package-card p {
+        margin: 0.48rem 0 0;
+        color: var(--ink-soft);
+        font-size: 0.86rem;
+        line-height: 1.42;
       }
 
       .reels-wrap {
@@ -611,6 +659,14 @@
         .reels-wrap {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .wide {
+          grid-column: span 6;
+        }
+
+        .package-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 920px) {
@@ -620,6 +676,10 @@
 
         .wide {
           grid-column: span 12;
+        }
+
+        .package-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -642,6 +702,10 @@
         }
 
         .date-selects {
+          grid-template-columns: 1fr;
+        }
+
+        .package-grid {
           grid-template-columns: 1fr;
         }
 
@@ -715,31 +779,67 @@
     <section id="looks">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Lipstick, Foundation and Eyeshadow Visuals</h2>
-          <p>Browse reference visuals for lip textures, skin-tone foundation shades, and eyeshadow color stories.</p>
+          <h2>Makeup Type Visual Guide</h2>
+          <p>Each look below shows the exact style option available for booking.</p>
         </div>
 
         <div class="looks-grid">
-          <article class="look-card wide tall reveal tilt">
-            <img src="https://images.pexels.com/photos/3373741/pexels-photo-3373741.jpeg" alt="Lipstick swatches in red and nude tones" />
-            <h3>Lipstick Texture Swatches</h3>
-            <p>Bold red and nude tones to compare finish and depth</p>
+          <article class="look-card wide reveal tilt">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Bridal glam makeup look with luminous skin and soft shimmer" />
+            <h3>Bridal Glam</h3>
+            <p>Soft shimmer, sculpted eyes, and long-wear bridal finish.</p>
           </article>
           <article class="look-card wide reveal tilt">
-            <img src="https://images.pexels.com/photos/4618524/pexels-photo-4618524.jpeg" alt="Foundation swatches in different shades" />
-            <h3>Foundation Shade Range</h3>
-            <p>Light-to-deep tones for smoother undertone matching</p>
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f" alt="Soft glam makeup portrait with balanced contour and neutral lips" />
+            <h3>Soft Glam Makeup</h3>
+            <p>Polished skin and gentle contour for an elegant everyday glam.</p>
           </article>
           <article class="look-card wide reveal tilt">
-            <img src="https://images.pexels.com/photos/1340925/pexels-photo-1340925.jpeg" alt="Colorful eyeshadow palette with brush" />
-            <h3>Eyeshadow Color Story</h3>
-            <p>Bright and neutral pans for daytime and glam looks</p>
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Full glam makeup with bold eyes and defined face beat" />
+            <h3>Full Glam</h3>
+            <p>Defined eyes, fuller lashes, and high-impact event-ready glam.</p>
           </article>
-          <article class="look-card wide tall reveal tilt">
-            <img src="https://images.pexels.com/photos/6662437/pexels-photo-6662437.jpeg" alt="Neutral eyeshadow palette close-up" />
-            <h3>Eyeshadow Blend Examples</h3>
-            <p>Matte, shimmer, and transition shades for soft blends</p>
+          <article class="look-card wide reveal tilt">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Graduation makeup look with camera-ready finish" />
+            <h3>Graduation Makeup</h3>
+            <p>Camera-friendly glam that lasts through ceremony and photos.</p>
           </article>
+          <article class="look-card wide reveal tilt">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796" alt="Clean girl makeup look with natural glow and subtle eyes" />
+            <h3>Clean Girl Makeup Look</h3>
+            <p>Fresh, dewy skin with neat brows and minimal effortless beauty.</p>
+          </article>
+        </div>
+
+        <div class="packages-block reveal">
+          <h3>Makeup Packages</h3>
+          <div class="package-grid">
+            <article class="package-card">
+              <span>Bridal Glam</span>
+              <strong>₦150k Package</strong>
+              <p>Premium bridal glam using high-end products for flawless, long-wear coverage.</p>
+            </article>
+            <article class="package-card">
+              <span>Soft Glam Makeup</span>
+              <strong>₦35k Package</strong>
+              <p>Light-to-medium glam with smooth skin finish and soft eye definition.</p>
+            </article>
+            <article class="package-card">
+              <span>Full Glam</span>
+              <strong>₦50k Package</strong>
+              <p>Bold glam with stronger contour, fuller lashes, and statement makeup detail.</p>
+            </article>
+            <article class="package-card">
+              <span>Graduation Makeup</span>
+              <strong>₦80k Package</strong>
+              <p>Long-stay celebratory glam crafted to look stunning in photos and videos.</p>
+            </article>
+            <article class="package-card">
+              <span>Clean Girl Makeup Look</span>
+              <strong>₦25k Package</strong>
+              <p>Minimal everyday beauty with skin-like base, clean brows, and soft highlight.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -831,11 +931,11 @@
                 <label for="type">Type of Makeup</label>
                 <select id="type" name="type" required>
                   <option value="">Choose style</option>
-                  <option>Soft Glam</option>
+                  <option>Bridal Glam</option>
+                  <option>Soft Glam Makeup</option>
                   <option>Full Glam</option>
-                  <option>Bridal Makeup</option>
-                  <option>Editorial Makeup</option>
-                  <option>Party / Event Makeup</option>
+                  <option>Graduation Makeup</option>
+                  <option>Clean Girl Makeup Look</option>
                 </select>
               </div>
 

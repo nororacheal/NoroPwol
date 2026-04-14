@@ -383,10 +383,15 @@
         color: #8a5468;
       }
 
-      .split {
+      .booking-wrap {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
         gap: 1rem;
+      }
+
+      .booking-head {
+        max-width: 700px;
+        margin: 0 auto 0.4rem;
+        text-align: center;
       }
 
       .card {
@@ -397,19 +402,18 @@
       }
 
       .booking-card {
-        padding: 1.2rem;
-      }
-
-      .booking-card h3 {
-        margin-top: 0.15rem;
-        margin-bottom: 0.9rem;
-        font-family: "Syne", sans-serif;
+        padding: 1.3rem;
+        border-radius: 24px;
+        border: 1px solid rgba(174, 125, 145, 0.28);
+        background:
+          linear-gradient(145deg, rgba(255, 252, 248, 0.96), rgba(255, 242, 248, 0.94));
+        box-shadow: 0 30px 60px rgba(116, 72, 92, 0.16);
       }
 
       .form-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.8rem;
+        gap: 0.95rem;
       }
 
       .field,
@@ -426,6 +430,9 @@
       label,
       legend {
         font-weight: 700;
+        font-size: 0.84rem;
+        letter-spacing: 0.02em;
+        color: #765f68;
       }
 
       input,
@@ -433,31 +440,40 @@
       textarea {
         font: inherit;
         width: 100%;
-        border-radius: 12px;
-        border: 1px solid var(--line);
-        padding: 0.68rem 0.78rem;
-        background: #fff;
+        border-radius: 14px;
+        border: 1px solid rgba(181, 136, 156, 0.3);
+        padding: 0.78rem 0.86rem;
+        background: rgba(255, 255, 255, 0.9);
         color: var(--ink);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
       input:focus,
       select:focus,
       textarea:focus {
-        outline: 2px solid rgba(190, 95, 130, 0.2);
-        border-color: var(--orange);
+        outline: 2px solid rgba(190, 95, 130, 0.22);
+        border-color: #a95073;
+        box-shadow: 0 0 0 4px rgba(190, 95, 130, 0.09);
       }
 
       fieldset {
-        padding: 0.82rem;
-        border: 1px dashed rgba(119, 86, 99, 0.3);
-        border-radius: 12px;
+        padding: 0.95rem;
+        border: 1px solid rgba(177, 137, 153, 0.28);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.62);
       }
 
       .check,
       .radio {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 0.5rem;
+        padding: 0.45rem 0.62rem;
+        border-radius: 12px;
+        border: 1px solid rgba(182, 145, 160, 0.26);
+        background: rgba(255, 255, 255, 0.75);
+        margin: 0.22rem 0;
       }
 
       .check input,
@@ -480,19 +496,26 @@
         border: 0;
         background: linear-gradient(120deg, var(--orange), #9a4566);
         color: #fff;
-        border-radius: 12px;
-        padding: 0.75rem 0.95rem;
+        border-radius: 14px;
+        padding: 0.86rem 1rem;
         font: inherit;
         font-weight: 700;
+        letter-spacing: 0.02em;
         cursor: pointer;
+        box-shadow: 0 16px 28px rgba(154, 69, 102, 0.3);
+      }
+
+      .submit:hover {
+        transform: translateY(-1px);
+        filter: saturate(1.06);
       }
 
       .summary {
-        margin-top: 0.7rem;
-        background: #fff3f6;
+        margin-top: 0.95rem;
+        background: linear-gradient(120deg, rgba(255, 240, 246, 0.92), rgba(255, 246, 238, 0.9));
         border: 1px solid #e8c8d5;
-        border-radius: 12px;
-        padding: 0.75rem;
+        border-radius: 14px;
+        padding: 0.85rem;
         display: none;
       }
 
@@ -500,6 +523,9 @@
         padding: 1.2rem;
         display: grid;
         gap: 0.9rem;
+        border-radius: 24px;
+        border: 1px solid rgba(175, 132, 150, 0.24);
+        background: linear-gradient(150deg, rgba(255, 249, 242, 0.95), rgba(255, 239, 246, 0.93));
       }
 
       .chip-list {
@@ -588,8 +614,7 @@
       }
 
       @media (max-width: 920px) {
-        .reels-wrap,
-        .split {
+        .reels-wrap {
           grid-template-columns: 1fr;
         }
 
@@ -749,9 +774,12 @@
     </section>
 
     <section id="book">
-      <div class="container split">
+      <div class="container booking-wrap">
+        <div class="section-head reveal booking-head">
+          <h2>Book Your Session</h2>
+          <p>Select your date and style, then send your booking details in one quick form.</p>
+        </div>
         <article class="card booking-card reveal">
-          <h3>Reserve Your Date</h3>
           <form id="bookingForm">
             <div class="form-grid">
               <div class="field">
@@ -836,7 +864,7 @@
         </article>
 
         <aside class="card book-aside reveal">
-          <h3 style="margin: 0; font-family: 'Syne', sans-serif">What You Get</h3>
+          <h3 style="margin: 0; font-family: 'Syne', sans-serif">Session Highlights</h3>
           <div class="chip-list">
             <span>Skin Prep</span>
             <span>Color Match</span>

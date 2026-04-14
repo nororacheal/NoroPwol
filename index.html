@@ -466,24 +466,10 @@
         margin: 0;
       }
 
-      .date-chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-      }
-
-      .date-chip {
-        border: 1px solid var(--line);
-        background: #fff;
-        border-radius: 999px;
-        padding: 0.38rem 0.72rem;
-        font-weight: 700;
-        color: #815266;
-        cursor: pointer;
-      }
-
-      .date-chip:hover {
-        border-color: #ce88a4;
+      .date-selects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
       }
 
       .hidden {
@@ -627,6 +613,10 @@
 
         .stat-wrap,
         .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .date-selects {
           grid-template-columns: 1fr;
         }
 
@@ -774,9 +764,27 @@
               </div>
 
               <div class="field full">
-                <label for="date">Preferred Date</label>
-                <input id="date" name="date" type="date" required />
-                <div id="dateChips" class="date-chips"></div>
+                <label for="month">Preferred Date</label>
+                <div class="date-selects">
+                  <select id="month" name="month" aria-label="Select month" required>
+                    <option value="">Select month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                  <select id="day" name="day" aria-label="Select day" required>
+                    <option value="">Select day</option>
+                  </select>
+                </div>
               </div>
 
               <div class="field">
@@ -854,8 +862,8 @@
       const hero = document.querySelector(".hero");
       const revealItems = document.querySelectorAll(".reveal");
       const tiltCards = document.querySelectorAll(".tilt");
-      const dateInput = document.getElementById("date");
-      const dateChips = document.getElementById("dateChips");
+      const monthSelect = document.getElementById("month");
+      const daySelect = document.getElementById("day");
       const ownWrap = document.getElementById("ownWrap");
       const ownField = document.getElementById("own");
       const form = document.getElementById("bookingForm");
@@ -893,24 +901,30 @@
         });
       });
 
-      const today = new Date();
-      dateInput.min = today.toISOString().split("T")[0];
+      const bookingYear = new Date().getFullYear();
 
-      [1, 2, 3, 5, 7, 10].forEach((offset) => {
-        const d = new Date(today);
-        d.setDate(today.getDate() + offset);
-        const iso = d.toISOString().split("T")[0];
-        const text = d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+      const populateDayOptions = () => {
+        const selectedMonth = Number(monthSelect.value);
+        const previousDay = daySelect.value;
 
-        const chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "date-chip";
-        chip.textContent = text;
-        chip.addEventListener("click", () => {
-          dateInput.value = iso;
-        });
-        dateChips.appendChild(chip);
-      });
+        daySelect.innerHTML = '<option value="">Select day</option>';
+        if (!selectedMonth) return;
+
+        const totalDays = new Date(bookingYear, selectedMonth, 0).getDate();
+        for (let day = 1; day <= totalDays; day += 1) {
+          const option = document.createElement("option");
+          option.value = String(day);
+          option.textContent = String(day);
+          daySelect.appendChild(option);
+        }
+
+        if (previousDay && Number(previousDay) <= totalDays) {
+          daySelect.value = previousDay;
+        }
+      };
+
+      monthSelect.addEventListener("change", populateDayOptions);
+      populateDayOptions();
 
       document.querySelectorAll("input[name='bring']").forEach((radio) => {
         radio.addEventListener("change", () => {
@@ -924,20 +938,22 @@
         event.preventDefault();
         const data = new FormData(form);
         const name = data.get("name");
-        const date = data.get("date");
+        const month = data.get("month");
+        const day = data.get("day");
         const type = data.get("type");
         const prefs = data.getAll("pref");
         const bring = data.get("bring");
         const own = data.get("own");
 
-        const formattedDate = date
-          ? new Date(`${date}T00:00:00`).toLocaleDateString(undefined, {
+        const formattedDate =
+          month && day
+            ? new Date(bookingYear, Number(month) - 1, Number(day)).toLocaleDateString(undefined, {
               weekday: "long",
               month: "long",
               day: "numeric",
               year: "numeric",
             })
-          : "Date not selected";
+            : "Date not selected";
 
         summary.style.display = "block";
         summary.innerHTML = `

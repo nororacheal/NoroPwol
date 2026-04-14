@@ -54,6 +54,61 @@
         animation: drift 20s linear infinite;
       }
 
+      .corner-visuals {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .corner-visual {
+        position: absolute;
+        width: clamp(130px, 17vw, 260px);
+        aspect-ratio: 1;
+        border-radius: 26px;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.16;
+        filter: saturate(0.95);
+        box-shadow: 0 16px 40px rgba(77, 42, 56, 0.18);
+      }
+
+      .corner-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(145deg, rgba(255, 246, 240, 0.5), rgba(236, 189, 208, 0.32));
+      }
+
+      .corner-lipstick {
+        top: 108px;
+        right: -42px;
+        transform: rotate(8deg);
+        background-image: url("https://images.pexels.com/photos/3373741/pexels-photo-3373741.jpeg");
+      }
+
+      .corner-foundation {
+        top: 52%;
+        left: -52px;
+        transform: translateY(-50%) rotate(-7deg);
+        background-image: url("https://images.pexels.com/photos/4618524/pexels-photo-4618524.jpeg");
+      }
+
+      .corner-eyeshadow {
+        right: 4.2%;
+        bottom: 28px;
+        transform: rotate(-6deg);
+        background-image: url("https://images.pexels.com/photos/6662437/pexels-photo-6662437.jpeg");
+      }
+
+      section,
+      .marquee,
+      footer {
+        position: relative;
+        z-index: 1;
+      }
+
       .container {
         width: min(1120px, 92vw);
         margin: 0 auto;
@@ -279,73 +334,8 @@
         color: var(--ink-soft);
       }
 
-      .looks-grid {
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 0.9rem;
-        align-items: stretch;
-      }
-
-      .look-card {
-        position: relative;
-        overflow: hidden;
-        border-radius: 20px;
-        box-shadow: var(--shadow);
-        min-height: 220px;
-        isolation: isolate;
-        transform-style: preserve-3d;
-      }
-
-      .look-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(18, 11, 8, 0.58), rgba(18, 11, 8, 0.06));
-        z-index: 1;
-      }
-
-      .look-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.55s ease;
-      }
-
-      .look-card:hover img {
-        transform: scale(1.08);
-      }
-
-      .look-card h3,
-      .look-card p {
-        margin: 0;
-        position: absolute;
-        z-index: 2;
-        left: 1rem;
-        right: 1rem;
-        color: #fff4e4;
-      }
-
-      .look-card h3 {
-        bottom: 2.25rem;
-        font-size: 1.1rem;
-      }
-
-      .look-card p {
-        bottom: 1rem;
-        font-size: 0.87rem;
-        color: rgba(255, 237, 220, 0.9);
-      }
-
-      .wide {
-        grid-column: span 4;
-      }
-
-      .tall {
-        min-height: 300px;
-      }
-
       .packages-block {
-        margin-top: 1.15rem;
+        margin-top: 0.4rem;
       }
 
       .packages-block h3 {
@@ -567,42 +557,6 @@
         display: none;
       }
 
-      .book-aside {
-        padding: 1.2rem;
-        display: grid;
-        gap: 0.9rem;
-        border-radius: 24px;
-        border: 1px solid rgba(175, 132, 150, 0.24);
-        background: linear-gradient(150deg, rgba(255, 249, 242, 0.95), rgba(255, 239, 246, 0.93));
-      }
-
-      .chip-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .chip-list span {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 0.32rem 0.62rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-      }
-
-      .mini-video {
-        border-radius: 14px;
-        overflow: hidden;
-      }
-
-      .mini-video video {
-        width: 100%;
-        display: block;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-      }
-
       .reveal {
         opacity: 0;
         transform: translateY(26px);
@@ -660,10 +614,6 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .wide {
-          grid-column: span 6;
-        }
-
         .package-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
@@ -672,10 +622,6 @@
       @media (max-width: 920px) {
         .reels-wrap {
           grid-template-columns: 1fr;
-        }
-
-        .wide {
-          grid-column: span 12;
         }
 
         .package-grid {
@@ -709,6 +655,14 @@
           grid-template-columns: 1fr;
         }
 
+        .corner-visual {
+          opacity: 0.11;
+        }
+
+        .corner-foundation {
+          display: none;
+        }
+
         section {
           padding: 3.3rem 0;
         }
@@ -716,11 +670,17 @@
     </style>
   </head>
   <body>
+    <div class="corner-visuals" aria-hidden="true">
+      <div class="corner-visual corner-lipstick"></div>
+      <div class="corner-visual corner-foundation"></div>
+      <div class="corner-visual corner-eyeshadow"></div>
+    </div>
+
     <header class="site-header">
       <nav class="nav-shell">
         <div class="brand">LushMuse Studio</div>
         <div class="nav-links">
-          <a href="#looks">Looks</a>
+          <a href="#looks">Packages</a>
           <a href="#reels">Videos</a>
           <a href="#book">Book</a>
         </div>
@@ -728,7 +688,7 @@
     </header>
 
     <section class="hero" id="top">
-      <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/7256102/pexels-photo-7256102.jpeg">
+      <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/12626058/pexels-photo-12626058.jpeg">
         <source src="https://cdn.pixabay.com/video/2025/04/06/270065_large.mp4" type="video/mp4" />
       </video>
 
@@ -779,36 +739,8 @@
     <section id="looks">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Makeup Type Visual Guide</h2>
-          <p>Each look below shows the exact style option available for booking.</p>
-        </div>
-
-        <div class="looks-grid">
-          <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Bridal glam makeup look with luminous skin and soft shimmer" />
-            <h3>Bridal Glam</h3>
-            <p>Soft shimmer, sculpted eyes, and long-wear bridal finish.</p>
-          </article>
-          <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f" alt="Soft glam makeup portrait with balanced contour and neutral lips" />
-            <h3>Soft Glam Makeup</h3>
-            <p>Polished skin and gentle contour for an elegant everyday glam.</p>
-          </article>
-          <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Full glam makeup with bold eyes and defined face beat" />
-            <h3>Full Glam</h3>
-            <p>Defined eyes, fuller lashes, and high-impact event-ready glam.</p>
-          </article>
-          <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Graduation makeup look with camera-ready finish" />
-            <h3>Graduation Makeup</h3>
-            <p>Camera-friendly glam that lasts through ceremony and photos.</p>
-          </article>
-          <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796" alt="Clean girl makeup look with natural glow and subtle eyes" />
-            <h3>Clean Girl Makeup Look</h3>
-            <p>Fresh, dewy skin with neat brows and minimal effortless beauty.</p>
-          </article>
+          <h2>Makeup Packages</h2>
+          <p>Lipstick, foundation, and eyeshadow visuals are now blended into the page corners as background.</p>
         </div>
 
         <div class="packages-block reveal">
@@ -852,19 +784,19 @@
         </div>
         <div class="reels-wrap">
           <article class="video-shell reveal">
-            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/3373741/pexels-photo-3373741.jpeg">
+            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/12626058/pexels-photo-12626058.jpeg">
               <source src="https://cdn.pixabay.com/video/2025/05/24/281419_large.mp4" type="video/mp4" />
             </video>
             <small>Lipstick Application Reel</small>
           </article>
           <article class="video-shell reveal">
-            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/4618524/pexels-photo-4618524.jpeg">
+            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/33762488/pexels-photo-33762488.jpeg">
               <source src="https://cdn.pixabay.com/video/2025/04/06/270065_large.mp4" type="video/mp4" />
             </video>
             <small>Foundation Shade Matching Reel</small>
           </article>
           <article class="video-shell reveal">
-            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/6662437/pexels-photo-6662437.jpeg">
+            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/29258125/pexels-photo-29258125.jpeg">
               <source src="https://cdn.pixabay.com/video/2025/12/16/322327_large.mp4" type="video/mp4" />
             </video>
             <small>Eyeshadow Visual Demo</small>
@@ -962,25 +894,6 @@
           </form>
           <div id="summary" class="summary" aria-live="polite"></div>
         </article>
-
-        <aside class="card book-aside reveal">
-          <h3 style="margin: 0; font-family: 'Syne', sans-serif">Session Highlights</h3>
-          <div class="chip-list">
-            <span>Skin Prep</span>
-            <span>Color Match</span>
-            <span>Face Mapping</span>
-            <span>Wear Test Tips</span>
-            <span>Touch-up Guide</span>
-          </div>
-          <p style="margin: 0; color: var(--ink-soft)">
-            Choose your preferred look and package tier quickly, with options now ranging from ₦25k to ₦150k.
-          </p>
-          <div class="mini-video">
-            <video autoplay muted loop playsinline>
-              <source src="https://cdn.pixabay.com/video/2025/12/16/322327_large.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </aside>
       </div>
     </section>
 

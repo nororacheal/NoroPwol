@@ -12,16 +12,16 @@
     />
     <style>
       :root {
-        --sand: #fff2e3;
-        --peach: #ffd6b4;
-        --sun: #ff9f54;
-        --orange: #d75422;
-        --teal: #0f8b83;
-        --ink: #23160f;
-        --ink-soft: #6c4f40;
-        --paper: #fffaf4;
-        --line: rgba(90, 55, 37, 0.18);
-        --shadow: 0 24px 55px rgba(74, 40, 25, 0.14);
+        --sand: #f8eee4;
+        --peach: #f4d9ca;
+        --sun: #efb6c8;
+        --orange: #be5f82;
+        --teal: #9d5d78;
+        --ink: #2a1c21;
+        --ink-soft: #6f555f;
+        --paper: #fff9f3;
+        --line: rgba(111, 79, 91, 0.2);
+        --shadow: 0 24px 55px rgba(91, 58, 70, 0.14);
       }
 
       * {
@@ -37,9 +37,9 @@
         color: var(--ink);
         font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
         background:
-          radial-gradient(1200px 500px at 12% -8%, #ffeccf, transparent 60%),
-          radial-gradient(900px 460px at 86% 2%, #ffcaa8, transparent 58%),
-          linear-gradient(165deg, var(--sand), #ffd9bf 66%, #ffd4ae);
+          radial-gradient(1200px 500px at 12% -8%, #f8e8d8, transparent 60%),
+          radial-gradient(900px 460px at 86% 2%, #f7d4e4, transparent 58%),
+          linear-gradient(165deg, var(--sand), #f3dece 66%, #ecd0da);
         overflow-x: hidden;
       }
 
@@ -48,7 +48,7 @@
         position: fixed;
         inset: -120px;
         pointer-events: none;
-        background-image: radial-gradient(rgba(214, 84, 34, 0.11) 1px, transparent 1px);
+        background-image: radial-gradient(rgba(190, 95, 130, 0.12) 1px, transparent 1px);
         background-size: 16px 16px;
         opacity: 0.28;
         animation: drift 20s linear infinite;
@@ -75,10 +75,10 @@
         justify-content: space-between;
         padding: 0.7rem 0.9rem;
         border-radius: 999px;
-        background: rgba(255, 250, 243, 0.82);
-        border: 1px solid rgba(95, 64, 47, 0.2);
+        background: rgba(255, 249, 243, 0.86);
+        border: 1px solid rgba(124, 90, 103, 0.22);
         backdrop-filter: blur(10px);
-        box-shadow: 0 8px 24px rgba(78, 45, 27, 0.12);
+        box-shadow: 0 8px 24px rgba(93, 61, 74, 0.13);
       }
 
       .brand {
@@ -104,7 +104,7 @@
 
       .nav-links a:hover {
         color: var(--orange);
-        background: #fff;
+        background: #fff7f1;
       }
 
       .hero {
@@ -128,7 +128,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(255, 188, 140, 0.28), transparent 35%);
+        background: radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(247, 177, 205, 0.3), transparent 35%);
         mix-blend-mode: screen;
         z-index: 2;
         pointer-events: none;
@@ -147,14 +147,14 @@
         z-index: 3;
         width: min(760px, 92vw);
         margin: 0 auto;
-        color: #fff4e6;
+        color: #fff6ef;
       }
 
       .eyebrow {
         display: inline-block;
         padding: 0.36rem 0.7rem;
         border-radius: 999px;
-        border: 1px solid rgba(255, 223, 197, 0.42);
+        border: 1px solid rgba(255, 224, 235, 0.45);
         background: rgba(255, 255, 255, 0.09);
         font-size: 0.8rem;
         text-transform: uppercase;
@@ -168,7 +168,7 @@
         font-size: clamp(2.15rem, 5vw, 4.4rem);
         line-height: 1.06;
         letter-spacing: 0.01em;
-        background: linear-gradient(100deg, #fff4e7 12%, #ffd7aa 44%, #fff5ec 70%);
+        background: linear-gradient(100deg, #fff8f2 12%, #f7d4e2 44%, #fff6f0 70%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -178,7 +178,7 @@
       .hero p {
         margin: 1rem 0 0;
         max-width: 56ch;
-        color: rgba(255, 236, 218, 0.95);
+        color: rgba(255, 238, 230, 0.95);
         font-size: 1.05rem;
       }
 
@@ -201,14 +201,14 @@
 
       .btn-primary {
         color: #fff;
-        background: linear-gradient(120deg, var(--orange), #b3401b);
-        box-shadow: 0 12px 24px rgba(179, 64, 27, 0.34);
+        background: linear-gradient(120deg, var(--orange), #9f4568);
+        box-shadow: 0 12px 24px rgba(159, 69, 104, 0.34);
       }
 
       .btn-secondary {
-        color: #fff4e3;
+        color: #fff4eb;
         background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 239, 225, 0.46);
+        border: 1px solid rgba(255, 233, 242, 0.48);
       }
 
       .btn:hover {
@@ -223,7 +223,7 @@
       }
 
       .stat {
-        border: 1px solid rgba(255, 223, 201, 0.38);
+        border: 1px solid rgba(255, 226, 236, 0.4);
         background: rgba(255, 255, 255, 0.1);
         border-radius: 14px;
         padding: 0.72rem 0.78rem;
@@ -241,9 +241,9 @@
         position: relative;
         z-index: 4;
         overflow: hidden;
-        border-top: 1px solid rgba(80, 48, 31, 0.2);
-        border-bottom: 1px solid rgba(80, 48, 31, 0.2);
-        background: rgba(255, 247, 239, 0.82);
+        border-top: 1px solid rgba(109, 78, 92, 0.24);
+        border-bottom: 1px solid rgba(109, 78, 92, 0.24);
+        background: rgba(255, 244, 237, 0.86);
       }
 
       .marquee-track {
@@ -256,7 +256,7 @@
       .marquee-track span {
         font-weight: 700;
         margin-right: 2.5rem;
-        color: #844127;
+        color: #925870;
         letter-spacing: 0.04em;
       }
 
@@ -345,7 +345,7 @@
 
       .reels-wrap {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1rem;
       }
 
@@ -353,7 +353,7 @@
         position: relative;
         padding: 3px;
         border-radius: 20px;
-        background: linear-gradient(125deg, #f89f5f, #ffddbd, #2ea396);
+        background: linear-gradient(125deg, #d984a7, #f5e2d4, #b86e8f);
       }
 
       .video-shell::before {
@@ -361,7 +361,7 @@
         position: absolute;
         inset: 0;
         border-radius: 20px;
-        background: conic-gradient(from 20deg, rgba(255, 164, 103, 0.62), rgba(46, 163, 150, 0.58), rgba(255, 164, 103, 0.62));
+        background: conic-gradient(from 20deg, rgba(217, 132, 167, 0.6), rgba(184, 110, 143, 0.56), rgba(217, 132, 167, 0.6));
         filter: blur(24px);
         opacity: 0.42;
         z-index: -1;
@@ -380,7 +380,7 @@
         display: block;
         margin-top: 0.55rem;
         font-weight: 600;
-        color: #8a4f34;
+        color: #8a5468;
       }
 
       .split {
@@ -443,13 +443,13 @@
       input:focus,
       select:focus,
       textarea:focus {
-        outline: 2px solid rgba(215, 84, 34, 0.2);
+        outline: 2px solid rgba(190, 95, 130, 0.2);
         border-color: var(--orange);
       }
 
       fieldset {
         padding: 0.82rem;
-        border: 1px dashed rgba(96, 62, 43, 0.28);
+        border: 1px dashed rgba(119, 86, 99, 0.3);
         border-radius: 12px;
       }
 
@@ -478,12 +478,12 @@
         border-radius: 999px;
         padding: 0.38rem 0.72rem;
         font-weight: 700;
-        color: #7e4d37;
+        color: #815266;
         cursor: pointer;
       }
 
       .date-chip:hover {
-        border-color: #db8459;
+        border-color: #ce88a4;
       }
 
       .hidden {
@@ -492,7 +492,7 @@
 
       .submit {
         border: 0;
-        background: linear-gradient(120deg, var(--orange), #b03f1b);
+        background: linear-gradient(120deg, var(--orange), #9a4566);
         color: #fff;
         border-radius: 12px;
         padding: 0.75rem 0.95rem;
@@ -503,8 +503,8 @@
 
       .summary {
         margin-top: 0.7rem;
-        background: #f4fff7;
-        border: 1px solid #c2ead0;
+        background: #fff3f6;
+        border: 1px solid #e8c8d5;
         border-radius: 12px;
         padding: 0.75rem;
         display: none;
@@ -557,17 +557,17 @@
       footer {
         padding: 2.3rem 0 2.6rem;
         text-align: center;
-        color: #8a5b45;
+        color: #8b5e72;
         font-weight: 600;
       }
 
       @keyframes text-glow {
         0%,
         100% {
-          filter: drop-shadow(0 0 2px rgba(255, 235, 217, 0.2));
+          filter: drop-shadow(0 0 2px rgba(255, 233, 243, 0.22));
         }
         50% {
-          filter: drop-shadow(0 0 12px rgba(255, 190, 143, 0.4));
+          filter: drop-shadow(0 0 12px rgba(245, 176, 207, 0.42));
         }
       }
 
@@ -592,6 +592,12 @@
         }
         to {
           transform: translateY(-30px);
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .reels-wrap {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -643,15 +649,15 @@
     </header>
 
     <section class="hero" id="top">
-      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80">
-        <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+      <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/7256102/pexels-photo-7256102.jpeg">
+        <source src="https://cdn.pixabay.com/video/2025/04/06/270065_large.mp4" type="video/mp4" />
       </video>
 
       <div class="hero-content reveal">
         <span class="eyebrow">Makeup Artist Landing Page</span>
         <h1>Beauty Looks That Turn Every Arrival Into A Moment</h1>
         <p>
-          Signature glam for bridal, editorial, and event beauty. Explore looks, watch our studio reel, then secure your preferred date and makeup style in under two minutes.
+          Signature glam with lipstick artistry, foundation shade matching, and eyeshadow inspiration. Explore visuals, watch targeted reels, then secure your preferred date in under two minutes.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#book">Book Your Session</a>
@@ -694,30 +700,30 @@
     <section id="looks">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Signature Looks Gallery</h2>
-          <p>Curated styles from classic soft glow to statement glam. Hover cards for the motion effect.</p>
+          <h2>Lipstick, Foundation and Eyeshadow Visuals</h2>
+          <p>Browse reference visuals for lip textures, skin-tone foundation shades, and eyeshadow color stories.</p>
         </div>
 
         <div class="looks-grid">
           <article class="look-card wide tall reveal tilt">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1300&q=80" alt="Bridal style makeup look" />
-            <h3>Bridal Radiance</h3>
-            <p>Luminous skin, soft shimmer, and long-wear finish</p>
+            <img src="https://images.pexels.com/photos/3373741/pexels-photo-3373741.jpeg" alt="Lipstick swatches in red and nude tones" />
+            <h3>Lipstick Texture Swatches</h3>
+            <p>Bold red and nude tones to compare finish and depth</p>
           </article>
           <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1300&q=80" alt="Soft glam closeup portrait" />
-            <h3>Soft Glam</h3>
-            <p>Balanced contour and effortless elegance</p>
+            <img src="https://images.pexels.com/photos/4618524/pexels-photo-4618524.jpeg" alt="Foundation swatches in different shades" />
+            <h3>Foundation Shade Range</h3>
+            <p>Light-to-deep tones for smoother undertone matching</p>
           </article>
           <article class="look-card wide reveal tilt">
-            <img src="https://images.unsplash.com/photo-1457972729786-0411a3b2b626?auto=format&fit=crop&w=1300&q=80" alt="Makeup artist tools and products" />
-            <h3>Artist Kit</h3>
-            <p>Skin-first prep and pro product layering</p>
+            <img src="https://images.pexels.com/photos/1340925/pexels-photo-1340925.jpeg" alt="Colorful eyeshadow palette with brush" />
+            <h3>Eyeshadow Color Story</h3>
+            <p>Bright and neutral pans for daytime and glam looks</p>
           </article>
           <article class="look-card wide tall reveal tilt">
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1300&q=80" alt="Event makeup look with bold lips" />
-            <h3>Event Statement</h3>
-            <p>Photo-ready glam with precision details</p>
+            <img src="https://images.pexels.com/photos/6662437/pexels-photo-6662437.jpeg" alt="Neutral eyeshadow palette close-up" />
+            <h3>Eyeshadow Blend Examples</h3>
+            <p>Matte, shimmer, and transition shades for soft blends</p>
           </article>
         </div>
       </div>
@@ -726,21 +732,27 @@
     <section id="reels">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Studio Videos</h2>
-          <p>Behind the scenes clips and motion-rich presentation for your landing page.</p>
+          <h2>Makeup Focus Videos</h2>
+          <p>Dedicated clips for lipstick application, foundation shades, and eyeshadow visual examples.</p>
         </div>
         <div class="reels-wrap">
           <article class="video-shell reveal">
-            <video autoplay muted loop controls playsinline poster="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1300&q=80">
-              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/3373741/pexels-photo-3373741.jpeg">
+              <source src="https://cdn.pixabay.com/video/2025/05/24/281419_large.mp4" type="video/mp4" />
             </video>
-            <small>Studio Mood Clip</small>
+            <small>Lipstick Application Reel</small>
           </article>
           <article class="video-shell reveal">
-            <video autoplay muted loop controls playsinline poster="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1300&q=80">
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/4618524/pexels-photo-4618524.jpeg">
+              <source src="https://cdn.pixabay.com/video/2025/04/06/270065_large.mp4" type="video/mp4" />
             </video>
-            <small>Client Transformation Reel</small>
+            <small>Foundation Shade Matching Reel</small>
+          </article>
+          <article class="video-shell reveal">
+            <video autoplay muted loop controls playsinline poster="https://images.pexels.com/photos/6662437/pexels-photo-6662437.jpeg">
+              <source src="https://cdn.pixabay.com/video/2025/12/16/322327_large.mp4" type="video/mp4" />
+            </video>
+            <small>Eyeshadow Visual Demo</small>
           </article>
         </div>
       </div>
@@ -825,11 +837,11 @@
             <span>Touch-up Guide</span>
           </div>
           <p style="margin: 0; color: var(--ink-soft)">
-            This section converts your landing page visitors into clients by combining visual proof and quick booking details.
+            Your page now highlights lipstick finishes, foundation shade options, and eyeshadow style references to help clients choose faster.
           </p>
           <div class="mini-video">
             <video autoplay muted loop playsinline>
-              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+              <source src="https://cdn.pixabay.com/video/2025/12/16/322327_large.mp4" type="video/mp4" />
             </video>
           </div>
         </aside>
